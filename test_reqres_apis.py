@@ -221,7 +221,8 @@ def test_list_with_delay_should_return_200(delay):
     # res_json = response.json()
     print(response.elapsed.total_seconds())
     assert response.elapsed.total_seconds() >= delay
-    assert response.status_code == 200
+    test_content_type_returned(f"{api_url}{users_api}?delay={delay}","GET",None,200)
+    # assert response.status_code == 200
 
 
 # assert status codes for the list of apis
@@ -274,6 +275,7 @@ def test_status_codes(path,verb,body,statuscode):
 (f"{api_url}{login_api}","POST",{"email": "peter@klaven"},400),
 (f"{api_url}{users_api}?delay=3","GET",None,200),
 ])
+@pytest.mark.content_type1
 def test_content_type_returned(path,verb,body,statuscode):
     """Verify the content-type returned by all the apis under test is 'application/json; charset=utf-8'"""
     response = requests.request(verb,path,json=body)
