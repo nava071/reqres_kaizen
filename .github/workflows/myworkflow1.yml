@@ -39,4 +39,4 @@ jobs:
           ls
           echo =====
           python --version
-          pipenv --version
+          pip install -r Pipfile
