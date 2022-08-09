@@ -39,3 +39,4 @@ jobs:
           ls
           echo =====
           python --version
+          pipenv --version
