@@ -40,7 +40,7 @@ jobs:
         run: docker container ls
         
       - name: curl the url
-        run: curl http://localhost:7080/
+        run: curl http://0.0.0.0:7080/
         
       - name: test the internet heroku
         run: pytest -v test_reqres_apis.py::test_docker
