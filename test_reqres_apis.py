@@ -307,7 +307,7 @@ def test_items_per_page(page,per_page,result):
     assert len(res_json["data"]) == result
 
 def test_docker():
-    url = "http://localhost:80/"
+    url = "http://localhost:7080/"
     resp = requests.get(url)
     print(resp.text)
     print(resp.status_code)
