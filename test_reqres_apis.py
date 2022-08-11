@@ -309,5 +309,6 @@ def test_items_per_page(page,per_page,result):
 def test_docker():
     url = "http://localhost:80"
     resp = requests.get(url)
+    print(resp.json())
     print(resp.status_code)
     assert resp.ok is True
