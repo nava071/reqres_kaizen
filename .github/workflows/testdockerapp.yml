@@ -33,6 +33,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: Run a docker
-      - run: docker run -d -p 80:80 docker/getting-started
+        run: docker run -d -p 80:80 docker/getting-started
       - name: Execute one test for docker
-      - run: pytest test_reqres_apis.py::test_docker
+        run: pytest test_reqres_apis.py::test_docker
