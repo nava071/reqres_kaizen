@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Explore workflow sections
+name: CI
 
 # Controls when the workflow will run
 on:
@@ -22,26 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          echo test, and deploy your project
-          pwd
-          echo =====
-          ls
-          echo =====
-      - name: check python version
-        run: python --version
-      - name: Install requirements
-        run: pip install -r requirements.txt
-      - name: Execute the tests
-        run: pytest -v
-          
+          echo test, and deploy your project.
+          docker run -d -p 80:80 docker/getting-started
