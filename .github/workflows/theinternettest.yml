@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: test a docker app
+name: test the internet heroku
 
 # Controls when the workflow will run
 on:
@@ -22,21 +22,22 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      # Runs a set of commands using the runners shell
-      - name: check python version
-        run: python --version
+      
       - name: Install requirements
         run: pip install -r requirements.txt
-      - name: Run a multi-line script
+        
+      - name: Check software versions
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      - name: Run a docker
-        run: docker run -d -p 80:80 docker/getting-started
-      - name: Docker details
-        run: |
-          docker container ls
-          docker image ls
-      - name: Execute one test for docker
+          python --version
+          pytest -V
+
+      - name: Run the internet heroku app
+        run: docker run -d -p 80:5000 gprestes/the-internet
+        
+      - name: Get docker details
+        run: docker container ls
+        
+      - name: test the internet heroku
         run: pytest -v test_reqres_apis.py::test_docker
