@@ -28,3 +28,4 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           docker run -d -p 80:80 docker/getting-started
+          pytest test_reqres_apis.py::test_docker
