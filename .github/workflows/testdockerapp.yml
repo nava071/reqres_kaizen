@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: test a docker app
 
 # Controls when the workflow will run
 on:
@@ -28,11 +28,15 @@ jobs:
         run: python --version
       - name: Install requirements
         run: pip install -r requirements.txt
-      - name: Execute the tests
-        run: pytest -v
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          docker run -d -p 80:80 docker/getting-started
-          pytest test_reqres_apis.py::test_docker
+      - name: Run a docker
+        run: docker run -d -p 80:80 docker/getting-started
+      - name: Docker details
+        run: |
+          docker container ls
+          docker image ls
+      - name: Execute one test for docker
+        run: pytest test_reqres_apis.py::test_docker
