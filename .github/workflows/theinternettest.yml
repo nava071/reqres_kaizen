@@ -40,4 +40,4 @@ jobs:
         run: docker container ls
         
       - name: test the internet heroku
-        run: pytest test_reqres_apis.py::test_docker
+        run: pytest -v test_reqres_apis.py::test_docker
