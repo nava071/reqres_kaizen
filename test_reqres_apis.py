@@ -6,7 +6,7 @@ api_url = "https://reqres.in"
 users_api = "/api/users"
 register_api = "/api/register"
 login_api = "/api/login"
-unknown_api = "/api/unknown"test_list_with_delay_should_return_200
+unknown_api = "/api/unknown"
 
 # GET SINGLE USER
 def test_single_user_should_return_the_user_info_for_valid_id():
