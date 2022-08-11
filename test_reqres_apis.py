@@ -6,7 +6,7 @@ api_url = "https://reqres.in"
 users_api = "/api/users"
 register_api = "/api/register"
 login_api = "/api/login"
-unknown_api = "/api/unknown"
+unknown_api = "/api/unknown"test_list_with_delay_should_return_200
 
 # GET SINGLE USER
 def test_single_user_should_return_the_user_info_for_valid_id():
@@ -305,3 +305,9 @@ def test_items_per_page(page,per_page,result):
     assert res_json["page"] == page
     assert res_json["per_page"] == per_page
     assert len(res_json["data"]) == result
+
+def test_docker():
+    url = "http://localhost:80"
+    resp = requests.get(url)
+    print(resp.status_code)
+    assert resp.ok is True
