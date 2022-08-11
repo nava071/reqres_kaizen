@@ -39,5 +39,8 @@ jobs:
       - name: Get docker details
         run: docker container ls
         
+      - name: curl the url
+        run: curl http://localhost:80/
+        
       - name: test the internet heroku
         run: pytest -v test_reqres_apis.py::test_docker
