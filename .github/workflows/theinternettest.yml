@@ -34,13 +34,15 @@ jobs:
           pytest -V
 
       - name: Run the internet heroku app
-        run: docker run -d -p 7080:5000 gprestes/the-internet
+        run: |
+          docker run -d -p 7080:5000 --name internetapp gprestes/the-internet
+          docker exec internetapp curl localhost:5000
         
       - name: Get docker details
         run: docker container ls
         
       - name: curl the url
-        run: curl http://0.0.0.0:7080/
+        run: curl localhost:7080
         
       - name: test the internet heroku
         run: pytest -v test_reqres_apis.py::test_docker
