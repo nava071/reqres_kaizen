@@ -35,7 +35,7 @@ jobs:
 
       - name: Run the internet heroku app
         run: |
-          docker run -d -p 7080:5000 --name internetapp gprestes/the-internet "curl www.google.com"
+          docker run -d -p 7080:5000 --name internetapp gprestes/the-internet
         
       - name: Get docker details
         run: docker container ls
