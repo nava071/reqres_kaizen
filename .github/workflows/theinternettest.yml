@@ -36,7 +36,8 @@ jobs:
       - name: Run the internet heroku app
         run: |
           docker run -d -p 7080:5000 --name internetapp gprestes/the-internet
-          docker exec internetapp curl localhost:5000
+          docker exec internetapp sudo lsof -i -P -n | grep LISTEN
+          docker exec internetapp curl localhost:9292
         
       - name: Get docker details
         run: docker container ls
