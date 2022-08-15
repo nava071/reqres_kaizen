@@ -34,7 +34,7 @@ jobs:
           pytest -V
 
       - name: Run the internet heroku app
-        run: docker run -d -p 7080:5000 --name internetapp gprestes/the-internet
+        run: docker run -d --name internetapp -p 7080:5000 gprestes/the-internet
         
       - name: Get docker details
         run: docker container ls
