@@ -45,4 +45,4 @@ jobs:
         run: wget localhost:7080/abtest
         
       - name: test the internet heroku
-        run: pytest -v test_reqres_apis.py::test_docker
+        run: pytest -vs test_reqres_apis.py::test_docker
